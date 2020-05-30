@@ -1,0 +1,17 @@
+{
+  "Parameters" : {
+    "clientVpnEndpointId": {"Type": "String"},
+    "targetNetworkCidr": {"Type": "String"}
+  },
+  "Resources" : {
+    "authClientVpnIngress": {
+      "Type" : "AWS::EC2::ClientVpnAuthorizationRule",
+      "Properties" : {
+        "AuthorizeAllGroups": "true",
+        "ClientVpnEndpointId": {"Ref": "clientVpnEndpointId"},
+        "Description": "authorize-client-vpn-ingress",
+        "TargetNetworkCidr": {"Ref": "targetNetworkCidr"}
+      }
+    }
+  }
+}
